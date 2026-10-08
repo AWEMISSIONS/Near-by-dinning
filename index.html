@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#123b35"><meta name="description" content="Find nearby restaurants by cuisine, distance, and walking estimate.">
+  <link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./styles.css">
+  <title>Nearby Dining | Find your table</title>
+</head>
+<body>
+  <header class="top"><a class="brand" href="#top"><span class="logo">⌖</span><span><b>Nearby Dining</b><small>YOUR TABLE, YOUR WAY</small></span></a><button id="share" class="quiet" type="button">Share</button></header>
+  <main id="top">
+    <section class="hero"><div><p class="eyebrow">A good place close by</p><h1>Find your next<br><em>favorite table.</em></h1><p>Search around you or any place. Choose a cuisine, set a walking range, and see the distance estimate before you go.</p></div><div class="hero-mark" aria-hidden="true">🍽</div></section>
+    <section class="search-card" aria-labelledby="searchTitle">
+      <div class="section-title"><div><p class="eyebrow">Start with a place</p><h2 id="searchTitle">Where should we look?</h2></div><button id="useLocation" class="soft" type="button">◎ Use my location</button></div>
+      <label for="origin">Address, city, or place</label><input id="origin" autocomplete="street-address" placeholder="New Tazewell, TN">
+      <div class="row"><div><label for="radius">Search distance</label><select id="radius"><option value="2">2 miles</option><option value="3">3 miles</option><option value="5" selected>5 miles</option><option value="10">10 miles</option><option value="15">15 miles</option><option value="20">20 miles</option></select></div><div><label for="sort">Sort results</label><select id="sort"><option value="recommended">Recommended</option><option value="distance">Closest first</option><option value="price">Lowest listed price</option><option value="name">Name A–Z</option></select></div></div>
+      <details class="filters"><summary>Food type &amp; chain filters</summary><div class="filter-grid"><div><label for="cuisine">Food type</label><select id="cuisine"><option value="">Any food type</option><option>American</option><option>BBQ</option><option>Cafe</option><option>Chinese</option><option>Indian</option><option>Italian</option><option>Japanese</option><option>Mexican</option><option>Pizza</option><option>Seafood</option><option>Thai</option><option>Vegetarian</option></select></div><div><label for="hideChains">Hide chains (comma separated)</label><input id="hideChains" value="McDonald's" placeholder="McDonald's, Starbucks"></div></div><p class="note">Food type and chain choices stay in this browser. Restaurant details come from OpenStreetMap and may be incomplete.</p></details>
+      <details class="filters route"><summary>Search along a route</summary><label for="destination">Destination (optional)</label><input id="destination" autocomplete="street-address" placeholder="Enter a destination to find places along the way"><p class="note">Route search uses a straight-line corridor when public route data is unavailable. Results are clearly labeled.</p></details>
+      <button id="search" class="primary" type="button">Find restaurants</button><p id="status" role="status" aria-live="polite">Enter a place or use your location to begin.</p>
+    </section>
+    <section class="results-section"><div class="results-heading"><div><p class="eyebrow">Your results</p><h2>Restaurants nearby</h2></div><span id="count" class="count">0 places</span></div><div class="map-wrap"><iframe id="map" title="Restaurant search map" loading="lazy" referrerpolicy="no-referrer" src="about:blank"></iframe><div id="mapFallback" class="map-placeholder">Your map will appear after a search.</div></div><div id="results" class="results" aria-live="polite"></div></section>
+    <footer><p>Distance and walk-time values are estimates from your search point. When a walking route isn’t available, the app labels its straight-line estimate. Confirm hours and details with the restaurant.</p><small>Map data © OpenStreetMap contributors · <a href="https://github.com/AWEMISSIONS/Near-by-dinning" target="_blank" rel="noopener">Source on GitHub</a></small></footer>
+  </main><script src="./app.js" defer></script>
+</body></html>
